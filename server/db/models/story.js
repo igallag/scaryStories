@@ -34,7 +34,20 @@ const Story = db.define('story', {
     defaultValue: false
   },
   tag: {
-    type: Sequelize.ARRAY(Sequelize.STRING),
+    type: Sequelize.ARRAY(Sequelize.STRING)
+  }
+})
+
+Story.beforeValidate(story => {
+  /*
+   * Generate slug
+   */
+  if (!story.uniqueId) {
+    story.slug = story.title
+      .replace(/\s/g, '_')
+      .replace(/\W/g, '')
+      .replace(/_/g, '-')
+      .toLowerCase()
   }
 })
 
