@@ -2,6 +2,7 @@ const router = require('express').Router()
 const {User} = require('../db/models')
 module.exports = router
 
+// Gets all users (probably alter this one to only display to admins or something)
 router.get('/', async (req, res, next) => {
   try {
     const users = await User.findAll({
@@ -16,6 +17,7 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+// Get a single user by ID
 router.get('/:userId', async (req, res, next) => {
   try {
     if (req.user.id === req.params.userId) {
@@ -29,6 +31,7 @@ router.get('/:userId', async (req, res, next) => {
   }
 })
 
+// Create a new user
 router.post('/', async (req, res, next) => {
   try {
     const user = await User.create(req.body)
@@ -38,6 +41,7 @@ router.post('/', async (req, res, next) => {
   }
 })
 
+// Edit a user's information
 router.put('/', async (req, res, next) => {
   try {
     const user = 'FILL ME IN'
@@ -46,6 +50,7 @@ router.put('/', async (req, res, next) => {
   }
 })
 
+// Delete a user
 router.delete('/:userId', async (req, res, next) => {
   try {
     if (req.user.id === req.params.userId) {
