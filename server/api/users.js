@@ -16,6 +16,19 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+router.get('/:userId', async (req, res, next) => {
+  try {
+    if (req.user.id === req.params.userId) {
+      const user = await User.findbyPk(req.user.id)
+      res.status(200).json(user)
+    } else {
+      res.sendStatus(403)
+    }
+  } catch (error) {
+    next(error)
+  }
+})
+
 router.post('/', async (req, res, next) => {
   try {
     const user = await User.create(req.body)
@@ -28,6 +41,25 @@ router.post('/', async (req, res, next) => {
 router.put('/', async (req, res, next) => {
   try {
     const user = 'FILL ME IN'
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.delete('/:userId', async (req, res, next) => {
+  try {
+    if (req.user.id === req.params.userId) {
+      const user = await User.findbyPk(req.user.id)
+
+      if (user) {
+        await user.destroy()
+        res.status(200).json(req.body)
+      } else {
+        res.sendStatus(404)
+      }
+    } else {
+      res.sendStatus(403)
+    }
   } catch (error) {
     next(error)
   }
