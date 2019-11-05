@@ -42,7 +42,14 @@ async function seed() {
     User.create({email: 'murphy@email.com', password: '123'})
   ])
 
+  const seedStories = await Promise.all(
+    stories.map(story => {
+      return Story.create(story)
+    })
+  )
+
   console.log(`seeded ${users.length} users`)
+  console.log(`seeded ${seedStories.length} stories`)
   console.log(`seeded successfully`)
 }
 
