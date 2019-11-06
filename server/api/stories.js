@@ -13,9 +13,9 @@ router.get('/', async (req, res, next) => {
 })
 
 // Get a story by ID
-router.get('/:storyId', (req, res, next) => {
+router.get('/:storyId', async (req, res, next) => {
   try {
-    const story = Story.findByPk(req.params.storyId)
+    const story = await Story.findByPk(req.params.storyId)
     if (story) {
       res.status(200).json(story)
     } else {
@@ -48,7 +48,7 @@ router.put('/', async (req, res, next) => {
 // delete a story (change later to protect it so only the author or an admin can delete it)
 router.delete('/:storyId', async (req, res, next) => {
   try {
-    const story = Story.findByPk(req.params.storyId)
+    const story = await Story.findByPk(req.params.storyId)
 
     if (story) {
       await story.destroy()
