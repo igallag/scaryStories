@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 const SingleMovieView = props => {
-  console.log(props.stories, 'this is stories')
-  const currStory = props.stories[0]
+  console.log(props, 'this is props')
+  const currStory = props.stories[props.location.state.storyId - 1]
   return (
     <div>
       <h1>Hey Y'all</h1>

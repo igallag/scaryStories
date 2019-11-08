@@ -5,7 +5,12 @@ import {Link} from 'react-router-dom'
 const SingleStory = props => {
   return (
     <div>
-      <Link to={`/stories/${props.story.slug}`}>
+      <Link
+        to={{
+          pathname: `/stories/${props.story.slug}`,
+          state: {storyId: props.storyId}
+        }}
+      >
         <img
           src={props.story.imageUrl}
           height="100"
@@ -19,4 +24,5 @@ const SingleStory = props => {
   )
 }
 
+// to={`/stories/${props.story.slug}`
 export default SingleStory
