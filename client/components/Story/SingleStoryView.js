@@ -7,8 +7,9 @@ const SingleMovieView = props => {
   const currStory = props.stories[props.location.state.storyId - 1]
   return (
     <div>
-      <h1>Hey Y'all</h1>
-      <p>{currStory.title}</p>
+      <img src={currStory.imageUrl} height="200" width="200" />
+      <h1>{currStory.title}</h1>
+      <p>{currStory.content}</p>
     </div>
   )
 }
