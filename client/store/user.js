@@ -6,17 +6,21 @@ import history from '../history'
  */
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
+const GET_USER_STORIES = 'GET_USER_STORIES'
 
 /**
  * INITIAL STATE
  */
-const defaultUser = {}
+const defaultUser = {
+  stories: []
+}
 
 /**
  * ACTION CREATORS
  */
 const getUser = user => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
+const getUserStories = stories => ({type: stories})
 
 /**
  * THUNK CREATORS
@@ -56,6 +60,17 @@ export const logout = () => async dispatch => {
   }
 }
 
+export const getUserStoriesThunk = () => {
+  return async dispatch => {
+    try {
+      const {data} = await axios.get(`/api/stories/myStories`)
+      dispatch(getUserStories(data))
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
+
 /**
  * REDUCER
  */
@@ -65,6 +80,8 @@ export default function(state = defaultUser, action) {
       return action.user
     case REMOVE_USER:
       return defaultUser
+    case GET_USER_STORIES:
+      return {...state, stories: action.stories}
     default:
       return state
   }
