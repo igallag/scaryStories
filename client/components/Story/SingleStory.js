@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 const SingleStory = props => {
   return (
-    <div>
+    <div id="single-story">
       <Link
         to={{
           pathname: `/stories/${props.story.slug}`,

@@ -14,7 +14,6 @@ class AllStories extends React.Component {
     return (
       <div>
         <h1>Stories</h1>
-        <p>This is where the stories go!</p>
         {this.props.stories.map(story => {
           return <SingleStory key={story.id} storyId={story.id} story={story} />
         })}
