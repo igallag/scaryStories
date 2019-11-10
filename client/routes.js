@@ -6,6 +6,7 @@ import {Login, Signup, UserHome} from './components'
 import {me} from './store'
 import AllStories from './components/Story/AllStoriesView'
 import SingleStoryView from './components/Story/SingleStoryView'
+import AllUserStories from './components/User/AllUserStories'
 
 /**
  * COMPONENT
@@ -30,6 +31,7 @@ class Routes extends Component {
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={UserHome} />
             <Route exact path="/stories" component={AllStories} />
+            <Route exact path="/stories/myStories" component={AllUserStories} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

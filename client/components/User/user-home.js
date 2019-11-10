@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
 /**
  * COMPONENT
@@ -13,7 +14,9 @@ export const UserHome = props => {
       <h3>Welcome, {email}</h3>
       <ul>
         <li>Submit a story</li>
-        <li>Your Stories</li>
+        <li>
+          <Link to="/stories/myStories">Your Stories</Link>
+        </li>
         <li>Settings</li>
       </ul>
     </div>

@@ -64,6 +64,7 @@ export const getUserStoriesThunk = () => {
   return async dispatch => {
     try {
       const {data} = await axios.get(`/api/stories/myStories`)
+      console.log(data)
       dispatch(getUserStories(data))
     } catch (error) {
       console.error(error)
