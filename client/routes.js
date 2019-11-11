@@ -25,13 +25,13 @@ class Routes extends Component {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route exact path="/stories" component={AllStories} />
-        <Route exact path="/stories/" component={SingleStoryView} />
+        <Route path="/stories/" component={SingleStoryView} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={UserHome} />
             <Route exact path="/stories" component={AllStories} />
-            <Route exact path="/stories/myStories" component={AllUserStories} />
+            <Route exact path="/users/myStories" component={AllUserStories} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

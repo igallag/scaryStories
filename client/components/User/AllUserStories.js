@@ -12,14 +12,12 @@ const AllUserStories = props => {
     props.getUserStories()
   }, [])
 
-  console.log(props.user.stories, 'this is props.user.stories')
-
   return (
     <div>
       <h1>Your stories</h1>
       {props.user.stories ? (
         props.user.stories.map(story => {
-          return <p key={story.id}>{story.title}</p>
+          return <SingleStory key={story.id} storyId={story.id} story={story} />
         })
       ) : (
         <p>Loading your stories!</p>

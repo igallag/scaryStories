@@ -12,20 +12,6 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-// Get all of a single User's stories
-router.get('/myStories', async (req, res, next) => {
-  try {
-    const stories = await Story.findAll({
-      where: {
-        userId: req.user.id
-      }
-    })
-    res.status(200).json(stories)
-  } catch (error) {
-    next(error)
-  }
-})
-
 // Get a story by ID
 router.get('/:storyId', async (req, res, next) => {
   try {

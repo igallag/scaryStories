@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {User} = require('../db/models')
+const {User, Story} = require('../db/models')
 module.exports = router
 
 // Gets all users (probably alter this one to only display to admins or something)
@@ -14,6 +14,20 @@ router.get('/', async (req, res, next) => {
     res.json(users)
   } catch (err) {
     next(err)
+  }
+})
+
+// Get all of a single User's stories
+router.get('/myStories', async (req, res, next) => {
+  try {
+    const stories = await Story.findAll({
+      where: {
+        userId: req.user.id
+      }
+    })
+    res.status(200).json(stories)
+  } catch (error) {
+    next(error)
   }
 })
 

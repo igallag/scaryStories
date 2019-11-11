@@ -63,7 +63,7 @@ export const logout = () => async dispatch => {
 export const getUserStoriesThunk = () => {
   return async dispatch => {
     try {
-      const {data} = await axios.get(`/api/stories/myStories`)
+      const {data} = await axios.get(`/api/users/myStories`)
       // console.log(data, 'this is data in getUserStoriesThunk')
       dispatch(getUserStories(data))
     } catch (error) {
