@@ -32,3 +32,8 @@ form div {
   flex-direction: row;
   align-items: center;
 }
+
+#story-entry {
+  display: flex;
+  flex-direction: column;
+}
