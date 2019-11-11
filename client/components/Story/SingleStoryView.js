@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 
-const SingleMovieView = props => {
+const SingleStoryView = props => {
   const currStory = props.stories[props.location.state.storyId - 1]
   return (
     <div>
@@ -19,4 +19,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(SingleMovieView)
+export default connect(mapStateToProps)(SingleStoryView)

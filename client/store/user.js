@@ -20,7 +20,7 @@ const defaultUser = {
  */
 const getUser = user => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
-const getUserStories = stories => ({type: stories})
+const getUserStories = stories => ({type: GET_USER_STORIES, stories})
 
 /**
  * THUNK CREATORS
@@ -64,7 +64,7 @@ export const getUserStoriesThunk = () => {
   return async dispatch => {
     try {
       const {data} = await axios.get(`/api/stories/myStories`)
-      console.log(data)
+      // console.log(data, 'this is data in getUserStoriesThunk')
       dispatch(getUserStories(data))
     } catch (error) {
       console.error(error)
@@ -82,7 +82,8 @@ export default function(state = defaultUser, action) {
     case REMOVE_USER:
       return defaultUser
     case GET_USER_STORIES:
-      return {...state, stories: action.stories}
+      // console.log(action.stories, "this is action.stories in the reducer")
+      return {...state, stories: [...action.stories]}
     default:
       return state
   }

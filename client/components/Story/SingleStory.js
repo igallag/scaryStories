@@ -24,5 +24,4 @@ const SingleStory = props => {
   )
 }
 
-// to={`/stories/${props.story.slug}`
 export default SingleStory
