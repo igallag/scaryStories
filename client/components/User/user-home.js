@@ -13,7 +13,9 @@ export const UserHome = props => {
     <div>
       <h3>Welcome, {email}</h3>
       <ul>
-        <li>Submit a story</li>
+        <li>
+          <Link to="/stories/submit">Submit a story</Link>
+        </li>
         <li>
           <Link to="/users/myStories">Your Stories</Link>
         </li>

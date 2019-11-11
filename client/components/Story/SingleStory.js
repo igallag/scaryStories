@@ -7,7 +7,7 @@ const SingleStory = props => {
     <div id="single-story">
       <Link
         to={{
-          pathname: `/stories/${props.story.slug}`,
+          pathname: `/stories/content/${props.story.slug}`,
           state: {storyId: props.storyId}
         }}
       >

@@ -7,6 +7,7 @@ import {me} from './store'
 import AllStories from './components/Story/AllStoriesView'
 import SingleStoryView from './components/Story/SingleStoryView'
 import AllUserStories from './components/User/AllUserStories'
+import StoryEntry from './components/Story/StoryEntry'
 
 /**
  * COMPONENT
@@ -25,13 +26,14 @@ class Routes extends Component {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route exact path="/stories" component={AllStories} />
-        <Route path="/stories/" component={SingleStoryView} />
+        <Route path="/stories/content" component={SingleStoryView} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={UserHome} />
             <Route exact path="/stories" component={AllStories} />
             <Route exact path="/users/myStories" component={AllUserStories} />
+            <Route exact path="/stories/submit" component={StoryEntry} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
