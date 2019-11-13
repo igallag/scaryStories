@@ -5,6 +5,7 @@ module.exports = router
 // Get all stories
 router.get('/', async (req, res, next) => {
   try {
+    console.log('INSIDE THE GET ALL STORIES API')
     const stories = await Story.findAll()
     res.status(200).json(stories)
   } catch (error) {
@@ -30,7 +31,12 @@ router.get('/:storyId', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
   try {
     const story = await Story.create(req.body)
+    console.log(story, 'THIS IS STORY')
+    console.log('INSIDE THE POST A STORY API')
     res.status(200).json(story)
+
+    // await Story.create(req.body)
+    // res.json(req.body)
   } catch (error) {
     next(error)
   }

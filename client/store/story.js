@@ -27,11 +27,14 @@ export const getAllStoriesThunk = () => {
 }
 
 export const addNewStoryThunk = story => {
+  // getting an error that is trying to use a "stories/api/stories"
   return async dispatch => {
     try {
-      const {data} = await axios.post('api/stories', story)
+      const {data} = await axios.post('/api/stories', story)
+      console.log(story, 'THIS IS STORY IN THE addsroty thunk')
+      // console.log(data, 'this is holder in the addstorythunk')
       dispatch(addNewStory(data))
-      history.push(`/stories/${data.slug}`)
+      // history.push(`/stories/${data.slug}`)
     } catch (error) {
       console.error(error)
     }

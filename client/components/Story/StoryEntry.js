@@ -21,13 +21,15 @@ class StoryEntry extends React.Component {
     this.setState({
       [evt.target.name]: evt.target.value
     })
+    // console.log(this.state)
   }
 
   // needs refactoring for this project
   handleSubmit(evt) {
     evt.preventDefault()
-
-    this.props.addNewStory(this.state)
+    // console.log(this.state, 'This was submitted')
+    const newStory = this.state
+    this.props.addNewStory(newStory)
     this.setState({
       title: '',
       description: '',
@@ -108,6 +110,7 @@ class StoryEntry extends React.Component {
               onChange={this.handleChange}
             />
           </div>
+          <button type="submit">Submit Story</button>
         </form>
       </div>
     )
@@ -116,7 +119,7 @@ class StoryEntry extends React.Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addNewStory: story => addNewStoryThunk(story)
+    addNewStory: story => dispatch(addNewStoryThunk(story))
   }
 }
 
