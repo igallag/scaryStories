@@ -30,9 +30,11 @@ router.get('/:storyId', async (req, res, next) => {
 // Create a story
 router.post('/', async (req, res, next) => {
   try {
-    const story = await Story.create(req.body)
-    console.log(story, 'THIS IS STORY')
-    console.log('INSIDE THE POST A STORY API')
+    let newStory = req.body
+    newStory.userId = req.user.id
+    console.log(newStory, 'THIS IS STORY')
+    const story = await Story.create(newStory)
+
     res.status(200).json(story)
 
     // await Story.create(req.body)

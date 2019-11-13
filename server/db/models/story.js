@@ -49,6 +49,12 @@ Story.beforeValidate(story => {
       .replace(/_/g, '-')
       .toLowerCase()
   }
+
+  // if there is no entered image URL it is replaced with the default
+  if (story.imageUrl === '') {
+    story.imageUrl =
+      'https://scarystoriesfromcamproanoke.files.wordpress.com/2017/08/cropped-largest-finished-logo.jpg'
+  }
 })
 
 module.exports = Story
