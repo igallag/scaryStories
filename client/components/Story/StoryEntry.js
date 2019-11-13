@@ -34,6 +34,8 @@ class StoryEntry extends React.Component {
       title: '',
       description: '',
       content: '',
+      imageUrl: '',
+      imageAlt: '',
       tags: []
     })
   }

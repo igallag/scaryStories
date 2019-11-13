@@ -31,10 +31,10 @@ export const addNewStoryThunk = story => {
   return async dispatch => {
     try {
       const {data} = await axios.post('/api/stories', story)
-      console.log(story, 'THIS IS STORY IN THE addsroty thunk')
+      // console.log(story, 'THIS IS STORY IN THE addsroty thunk')
       // console.log(data, 'this is holder in the addstorythunk')
       dispatch(addNewStory(data))
-      // history.push(`/stories/${data.slug}`)
+      history.push(`/stories`)
     } catch (error) {
       console.error(error)
     }
