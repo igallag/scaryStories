@@ -44,7 +44,7 @@ class StoryEntry extends React.Component {
     return (
       <div id="story-entry">
         <form onSubmit={this.handleSubmit}>
-          <div>
+          <div id="title-entry">
             <label htmlFor="title">
               <small>Title</small>
             </label>
@@ -71,6 +71,7 @@ class StoryEntry extends React.Component {
               <small>Content</small>
             </label>
             <input
+              className="big-textbox"
               name="content"
               type="text"
               value={this.state.content}
@@ -79,7 +80,7 @@ class StoryEntry extends React.Component {
           </div>
           <div>
             <label htmlFor="imageUrl">
-              <small>Image (optional)</small>
+              <small>Image URL (optional)</small>
             </label>
             <input
               name="imageUrl"
@@ -110,7 +111,7 @@ class StoryEntry extends React.Component {
               onChange={this.handleChange}
             />
           </div>
-          <button type="submit">Submit Story</button>
+          <button type="submit">Submit</button>
         </form>
       </div>
     )

@@ -34,6 +34,23 @@ form div {
 }
 
 #story-entry {
+  display: grid;
+  grid-template-rows: 25% 100px auto;
+  grid-template-columns: 40px 50px auto 50px 40px;
+}
+
+/* This stuff is half styled but the wrap doesnt
+ * doesnt work on the big textbox and also
+ * needs aditional front end work
+ */
+#title-entry {
+  grid-column-start: col-start 2;
+}
+
+.big-textbox {
   display: flex;
-  flex-direction: column;
+  height: 200px;
+  width: 400px;
+  border-radius: 10%;
+  flex-wrap: wrap;
 }
