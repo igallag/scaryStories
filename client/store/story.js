@@ -11,11 +11,13 @@ let initialState = {
 const GET_ALL_STORIES = 'GET_ALL_STORIES'
 const ADD_NEW_STORY = 'ADD_NEW_STORY'
 const REMOVE_STORY = 'REMOVE_STORY'
+const GET_TAG_STORIES = 'GET_TAG_STORIES'
 
 // ACTION CREATORS
 const getAllStories = stories => ({type: GET_ALL_STORIES, stories})
 const addNewStory = story => ({type: ADD_NEW_STORY, story})
 const removeStory = story => ({type: REMOVE_STORY, story})
+const getTagStories = stories => ({type: GET_TAG_STORIES, stories})
 
 // THUNK CREATORS
 export const getAllStoriesThunk = () => {
@@ -45,10 +47,21 @@ export const addNewStoryThunk = story => {
 export const removeStoryThunk = story => {
   return async dispatch => {
     try {
-      console.log('inside the removeStoryThunk')
       const {data} = await axios.delete(`/api/stories/${story.id}`)
       dispatch(removeStory(data))
       history.push(`/stories`)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
+
+export const getTagStoriesThunk = tag => {
+  return async dispatch => {
+    try {
+      const {data} = await axios.get(`/api/stories/tag/${tag}`)
+
+      dispatch(getTagStories(data))
     } catch (error) {
       console.error(error)
     }
@@ -70,6 +83,8 @@ export default function(state = initialState, action) {
         }
       })
       return {...state, stories: newStories}
+    case GET_TAG_STORIES:
+      return {...state, stories: action.stories}
     default:
       return state
   }

@@ -5,7 +5,6 @@ import {removeStoryThunk} from '../../store/story'
 
 const SingleStoryView = props => {
   const currStory = props.stories[props.location.state.storyId - 1]
-  console.log(props.stories[props.location.state.storyId - 1])
   return currStory ? (
     <div>
       <img src={currStory.imageUrl} height="200" width="200" />
@@ -15,7 +14,7 @@ const SingleStoryView = props => {
       <ul>
         {currStory.tags.map(tag => {
           return (
-            <Link key={tag}>
+            <Link to={`/stories/tag/${tag}`} key={tag}>
               <li key={tag}>{tag}</li>
             </Link>
           )

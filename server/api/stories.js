@@ -6,7 +6,6 @@ module.exports = router
 // Get all stories
 router.get('/', async (req, res, next) => {
   try {
-    console.log('INSIDE THE GET ALL STORIES API')
     const stories = await Story.findAll()
     res.status(200).json(stories)
   } catch (error) {
@@ -31,6 +30,7 @@ router.get('/:storyId', async (req, res, next) => {
 // Get All Stories by Tag
 router.get('/tag/:storyTag', async (req, res, next) => {
   const Op = Sequelize.Op
+  console.log('inside get stories by tag route')
   try {
     const stories = await Story.findAll({
       where: {
@@ -50,7 +50,6 @@ router.post('/', async (req, res, next) => {
   try {
     let newStory = req.body
     newStory.userId = req.user.id
-    console.log(newStory, 'THIS IS STORY')
     const story = await Story.create(newStory)
 
     res.status(200).json(story)
