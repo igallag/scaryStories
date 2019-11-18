@@ -1,10 +1,11 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
+import {removeStoryThunk} from '../../store/story'
 
 const SingleStoryView = props => {
   const currStory = props.stories[props.location.state.storyId - 1]
-  console.log(props.user, 'this is props.user')
+  console.log(props.stories[props.location.state.storyId - 1])
   return currStory ? (
     <div>
       <img src={currStory.imageUrl} height="200" width="200" />
@@ -14,14 +15,16 @@ const SingleStoryView = props => {
       {currStory.userId === props.user.id ? (
         <div>
           <button type="button">Edit</button>
-          <button type="button">Delete</button>
+          <button type="button" onClick={() => props.removeStory(currStory)}>
+            Delete
+          </button>
         </div>
       ) : (
         ''
       )}
     </div>
   ) : (
-    <p>Loading</p>
+    <p>Problem Loading the story</p>
   )
 }
 
@@ -32,4 +35,10 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(SingleStoryView)
+const mapDispatchToProps = dispatch => {
+  return {
+    removeStory: story => dispatch(removeStoryThunk(story))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SingleStoryView)
