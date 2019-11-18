@@ -14,7 +14,7 @@ class AllTagStories extends React.Component {
   render() {
     return (
       <div>
-        <h1>Tag Stories!</h1>
+        <h1>Stories tagged with "{this.props.match.params.storyTag}"</h1>
         {this.props.stories.map(story => {
           return <SingleStory key={story.id} storyId={story.id} story={story} />
         })}
