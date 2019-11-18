@@ -10,13 +10,15 @@ const SingleStoryView = props => {
       <img src={currStory.imageUrl} height="200" width="200" />
       <h1>{currStory.title}</h1>
       <p>{currStory.content}</p>
-      <div>
-        {currStory.userId === props.user.id ? (
+
+      {currStory.userId === props.user.id ? (
+        <div>
+          <button type="button">Edit</button>
           <button type="button">Delete</button>
-        ) : (
-          ''
-        )}
-      </div>
+        </div>
+      ) : (
+        ''
+      )}
     </div>
   ) : (
     <p>Loading</p>
