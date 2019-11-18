@@ -11,6 +11,16 @@ const SingleStoryView = props => {
       <img src={currStory.imageUrl} height="200" width="200" />
       <h1>{currStory.title}</h1>
       <p>{currStory.content}</p>
+      <p>Tags:</p>
+      <ul>
+        {currStory.tags.map(tag => {
+          return (
+            <Link key={tag}>
+              <li key={tag}>{tag}</li>
+            </Link>
+          )
+        })}
+      </ul>
 
       {currStory.userId === props.user.id ? (
         <div>

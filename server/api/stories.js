@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const Story = require('../db/models/story')
+const Sequelize = require('sequelize')
 module.exports = router
 
 // Get all stories
@@ -22,6 +23,23 @@ router.get('/:storyId', async (req, res, next) => {
     } else {
       res.sendStatus(404)
     }
+  } catch (error) {
+    next(error)
+  }
+})
+
+// Get All Stories by Tag
+router.get('/tag/:storyTag', async (req, res, next) => {
+  const Op = Sequelize.Op
+  try {
+    const stories = await Story.findAll({
+      where: {
+        tags: {
+          [Op.overlap]: [req.params.storyTag]
+        }
+      }
+    })
+    res.status(200).json(stories)
   } catch (error) {
     next(error)
   }
