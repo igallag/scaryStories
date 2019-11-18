@@ -33,7 +33,7 @@ const Story = db.define('story', {
     allowNull: false,
     defaultValue: false
   },
-  tag: {
+  tags: {
     type: Sequelize.ARRAY(Sequelize.STRING)
   }
 })
