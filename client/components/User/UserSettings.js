@@ -15,6 +15,9 @@ const UserSetting = props => {
           Edit Information
         </button>
       </div>
+      <div>
+        <button type="button">NightMode</button>
+      </div>
     </div>
   )
 }
