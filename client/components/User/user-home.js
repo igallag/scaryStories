@@ -19,7 +19,9 @@ export const UserHome = props => {
         <li>
           <Link to="/users/myStories">Your Stories</Link>
         </li>
-        <li>Settings</li>
+        <li>
+          <Link to="/users/settings">Settings</Link>
+        </li>
       </ul>
     </div>
   )

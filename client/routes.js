@@ -9,6 +9,7 @@ import SingleStoryView from './components/Story/SingleStoryView'
 import AllUserStories from './components/User/AllUserStories'
 import StoryEntry from './components/Story/StoryEntry'
 import AllTagStories from './components/Story/AllTagStoriesView'
+import UserSettings from './components/User/UserSettings'
 
 /**
  * COMPONENT
@@ -36,6 +37,7 @@ class Routes extends Component {
             <Route exact path="/stories" component={AllStories} />
             <Route exact path="/users/myStories" component={AllUserStories} />
             <Route exact path="/stories/submit" component={StoryEntry} />
+            <Route exact path="/users/settings" component={UserSettings} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

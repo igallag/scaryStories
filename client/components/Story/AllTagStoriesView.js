@@ -7,7 +7,6 @@ import SingleStory from './SingleStory'
 
 class AllTagStories extends React.Component {
   componentDidMount() {
-    console.log(this.props)
     this.props.getTagStories(this.props.match.params.storyTag)
   }
 
