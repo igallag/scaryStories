@@ -4,18 +4,21 @@ import history from '../history'
 
 // INITIAL STATE
 let initialState = {
-  stories: []
+  stories: [],
+  selectedStory: {}
 }
 
 // ACTION TYPES
 const GET_ALL_STORIES = 'GET_ALL_STORIES'
 const ADD_NEW_STORY = 'ADD_NEW_STORY'
+const SELECT_STORY = 'SELECT_STORY'
 const REMOVE_STORY = 'REMOVE_STORY'
 const GET_TAG_STORIES = 'GET_TAG_STORIES'
 
 // ACTION CREATORS
 const getAllStories = stories => ({type: GET_ALL_STORIES, stories})
 const addNewStory = story => ({type: ADD_NEW_STORY, story})
+const selectStory = story => ({type: SELECT_STORY, story})
 const removeStory = story => ({type: REMOVE_STORY, story})
 const getTagStories = stories => ({type: GET_TAG_STORIES, stories})
 
@@ -38,6 +41,18 @@ export const addNewStoryThunk = story => {
 
       dispatch(addNewStory(data))
       history.push(`/stories`)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
+
+export const selectStoryThunk = story => {
+  return async dispatch => {
+    try {
+      // make the selected story obj the current story so there is no problem loading the curr story.
+      // probably call this in a use effect iin single story view instead of using the current method
+      // maybe have this check the slug on the page to make it easier to locate and be abelt to go to a place using just the slug
     } catch (error) {
       console.error(error)
     }

@@ -1,10 +1,17 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {removeStoryThunk} from '../../store/story'
+import {removeStoryThunk, getAllStoriesThunk} from '../../store/story'
 
 const SingleStoryView = props => {
   const currStory = props.stories[props.location.state.storyId - 1]
+  useEffect(() => {
+    if (!currStory) {
+      console.log('there is no story')
+      console.log(props.stories)
+    }
+  }, [])
+
   return currStory ? (
     <div>
       <img src={currStory.imageUrl} height="200" width="200" />
@@ -33,7 +40,12 @@ const SingleStoryView = props => {
       )}
     </div>
   ) : (
-    <p>Problem Loading the story</p>
+    <div>
+      <p>Problem Loading the story</p>
+      <button type="button" onClick={() => getAllStoriesThunk()}>
+        Try Again
+      </button>
+    </div>
   )
 }
 
@@ -46,7 +58,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    removeStory: story => dispatch(removeStoryThunk(story))
+    removeStory: story => dispatch(removeStoryThunk(story)),
+    getAllStories: () => dispatch(getAllStoriesThunk())
   }
 }
 

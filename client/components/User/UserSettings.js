@@ -2,8 +2,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 const UserSetting = props => {
-  console.log(props, 'This is props')
-
   const {user} = props
   return (
     <div>

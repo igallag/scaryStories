@@ -64,6 +64,7 @@ router.post('/', async (req, res, next) => {
 // Edit a story (change later to protect it so only the author or admin can edit it)
 router.put('/', async (req, res, next) => {
   try {
+    console.log(req, 'this is req')
     let oldStory = await Story.findByPk(req.body.id)
     // if(req.user.id === oldStory.userId){
     let newStory = req.body
@@ -86,6 +87,7 @@ router.put('/', async (req, res, next) => {
       content: newStory.content,
       tags: newStory.tags
     })
+
     res.status(200).json(obj)
     // }
     // else {
