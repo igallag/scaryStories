@@ -64,7 +64,33 @@ router.post('/', async (req, res, next) => {
 // Edit a story (change later to protect it so only the author or admin can edit it)
 router.put('/', async (req, res, next) => {
   try {
-    const story = 'FILL ME IN'
+    let oldStory = await Story.findByPk(req.body.id)
+    // if(req.user.id === oldStory.userId){
+    let newStory = req.body
+    // makes sure there is a title on the new story
+    if (!newStory.title) {
+      newStory.title = oldStory.title
+    }
+    // makes sure there is a description on new story
+    if (!newStory.description) {
+      newStory.description = oldStory.description
+    }
+    // makes sure there is story content in the new Story
+    if (!newStory.content) {
+      newStory.content = oldStory.content
+    }
+
+    const obj = await oldStory.update({
+      title: newStory.title,
+      description: newStory.description,
+      content: newStory.content,
+      tags: newStory.tags
+    })
+    res.status(200).json(obj)
+    // }
+    // else {
+    //   res.sendStatus(403)
+    // }
   } catch (error) {
     next(error)
   }
