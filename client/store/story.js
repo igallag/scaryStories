@@ -5,13 +5,13 @@ import history from '../history'
 // INITIAL STATE
 let initialState = {
   stories: [],
-  selectedStory: {}
+  selectedStory: {} // this maybe depricated
 }
 
 // ACTION TYPES
 const GET_ALL_STORIES = 'GET_ALL_STORIES'
 const ADD_NEW_STORY = 'ADD_NEW_STORY'
-const SELECT_STORY = 'SELECT_STORY'
+const SELECT_STORY = 'SELECT_STORY' // This may be depricated
 const REMOVE_STORY = 'REMOVE_STORY'
 const GET_TAG_STORIES = 'GET_TAG_STORIES'
 
