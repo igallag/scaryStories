@@ -53,6 +53,9 @@ export const selectStoryThunk = story => {
       // make the selected story obj the current story so there is no problem loading the curr story.
       // probably call this in a use effect iin single story view instead of using the current method
       // maybe have this check the slug on the page to make it easier to locate and be abelt to go to a place using just the slug
+      // this story.id may  need to be fixed depending on how the story is passed in
+      const {data} = await axios.get(`/api/stories/${story.id}`)
+      dispatch(selectStory(data))
     } catch (error) {
       console.error(error)
     }
@@ -100,6 +103,8 @@ export default function(state = initialState, action) {
       return {...state, stories: newStories}
     case GET_TAG_STORIES:
       return {...state, stories: action.stories}
+    case SELECT_STORY:
+      return {...state, selectedStory: action.story}
     default:
       return state
   }

@@ -64,7 +64,7 @@ export const getUserStoriesThunk = () => {
   return async dispatch => {
     try {
       const {data} = await axios.get(`/api/users/myStories`)
-      // console.log(data, 'this is data in getUserStoriesThunk')
+
       dispatch(getUserStories(data))
     } catch (error) {
       console.error(error)
@@ -82,7 +82,6 @@ export default function(state = defaultUser, action) {
     case REMOVE_USER:
       return defaultUser
     case GET_USER_STORIES:
-      // console.log(action.stories, "this is action.stories in the reducer")
       return {...state, stories: [...action.stories]}
     default:
       return state

@@ -30,7 +30,7 @@ router.get('/:storyId', async (req, res, next) => {
 // Get All Stories by Tag
 router.get('/tag/:storyTag', async (req, res, next) => {
   const Op = Sequelize.Op
-  console.log('inside get stories by tag route')
+
   try {
     const stories = await Story.findAll({
       where: {
@@ -64,7 +64,6 @@ router.post('/', async (req, res, next) => {
 // Edit a story (change later to protect it so only the author or admin can edit it)
 router.put('/', async (req, res, next) => {
   try {
-    console.log(req, 'this is req')
     let oldStory = await Story.findByPk(req.body.id)
     // if(req.user.id === oldStory.userId){
     let newStory = req.body

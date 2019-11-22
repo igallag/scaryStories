@@ -1,14 +1,20 @@
 import React, {useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {removeStoryThunk, getAllStoriesThunk} from '../../store/story'
+import {
+  removeStoryThunk,
+  getAllStoriesThunk,
+  selectStoryThunk
+} from '../../store/story'
 
 const SingleStoryView = props => {
-  const currStory = props.stories[props.location.state.storyId - 1]
+  let currStory = props.stories[props.location.state.storyId - 1]
+  console.log(props, 'THIS IS PROPS')
+
   useEffect(() => {
     if (!currStory) {
-      console.log('there is no story')
-      console.log(props.stories)
+      // fetch the selected story and make it the selected story
+      // thinking of looking via the current slug
     }
   }, [])
 
@@ -59,7 +65,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     removeStory: story => dispatch(removeStoryThunk(story)),
-    getAllStories: () => dispatch(getAllStoriesThunk())
+    getAllStories: () => dispatch(getAllStoriesThunk()),
+    selectStory: story => dispatch(selectStoryThunk(story))
   }
 }
 

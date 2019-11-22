@@ -21,13 +21,12 @@ class StoryEntry extends React.Component {
     this.setState({
       [evt.target.name]: evt.target.value
     })
-    // console.log(this.state)
   }
 
   // needs refactoring for this project
   handleSubmit(evt) {
     evt.preventDefault()
-    // console.log(this.state, 'This was submitted')
+
     const newStory = this.state
     this.props.addNewStory(newStory)
     this.setState({
