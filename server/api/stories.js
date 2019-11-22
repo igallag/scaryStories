@@ -14,9 +14,28 @@ router.get('/', async (req, res, next) => {
 })
 
 // Get a story by ID
+// this may depricated after the 'get story by slug' route is implimented
 router.get('/:storyId', async (req, res, next) => {
   try {
     const story = await Story.findByPk(req.params.storyId)
+    if (story) {
+      res.status(200).json(story)
+    } else {
+      res.sendStatus(404)
+    }
+  } catch (error) {
+    next(error)
+  }
+})
+
+// get story by slug
+router.get('/content/:slug', async (req, res, next) => {
+  try {
+    const story = await Story.findOne({
+      where: {
+        slug: req.params.slug
+      }
+    })
     if (story) {
       res.status(200).json(story)
     } else {

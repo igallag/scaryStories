@@ -9,7 +9,6 @@ import {
 
 const SingleStoryView = props => {
   let currStory = props.stories[props.location.state.storyId - 1]
-  console.log(props, 'THIS IS PROPS')
 
   useEffect(() => {
     if (!currStory) {
@@ -58,6 +57,7 @@ const SingleStoryView = props => {
 const mapStateToProps = state => {
   return {
     stories: state.story.stories,
+    selectedStory: state.story.selectedStory,
     user: state.user
   }
 }
