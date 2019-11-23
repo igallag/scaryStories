@@ -5,13 +5,15 @@ import history from '../history'
 // INITIAL STATE
 let initialState = {
   stories: [],
-  selectedStory: {} // this maybe depricated
+  selectedStory: {
+    tags: []
+  }
 }
 
 // ACTION TYPES
 const GET_ALL_STORIES = 'GET_ALL_STORIES'
 const ADD_NEW_STORY = 'ADD_NEW_STORY'
-const SELECT_STORY = 'SELECT_STORY' // This may be depricated
+const SELECT_STORY = 'SELECT_STORY'
 const REMOVE_STORY = 'REMOVE_STORY'
 const GET_TAG_STORIES = 'GET_TAG_STORIES'
 
@@ -55,6 +57,7 @@ export const selectStoryThunk = story => {
       // maybe have this check the slug on the page to make it easier to locate and be abelt to go to a place using just the slug
       // this story.id may  need to be fixed depending on how the story is passed in
       const {data} = await axios.get(`/api/stories/${story.id}`)
+      console.log('inside selectStoryThunk')
       dispatch(selectStory(data))
     } catch (error) {
       console.error(error)

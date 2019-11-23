@@ -9,18 +9,18 @@ import {
 } from '../../store/story'
 
 const SingleStoryView = props => {
-  let currStory = props.stories[props.location.state.storyId - 1]
+  let currStory = props.selectedStory
   // console.log(props, 'this is props')
 
-  useEffect(async () => {
-    if (!currStory) {
-      // fetch the selected story and make it the selected story
-      // thinking of looking via the current slug
-      // console.log('inside useEffect')
-      // currStory = await axios.get(`/api/${props.location.pathname}`)
-    }
-  }, [])
-
+  // useEffect(async () => {
+  //   if (!currStory) {
+  //     // fetch the selected story and make it the selected story
+  //     // thinking of looking via the current slug
+  //     // console.log('inside useEffect')
+  //     // currStory = await axios.get(`/api/${props.location.pathname}`)
+  //   }
+  // }, [])
+  console.log(props.selectedStory, 'this is selected story')
   return currStory ? (
     <div>
       <img src={currStory.imageUrl} height="200" width="200" />

@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import {selectStoryThunk} from '../../store/story'
 
 const SingleStory = props => {
   return (
@@ -10,6 +11,7 @@ const SingleStory = props => {
           pathname: `/stories/content/${props.story.slug}`,
           state: {storyId: props.storyId}
         }}
+        onClick={() => props.selectStory(props.story)}
       >
         <img
           src={props.story.imageUrl}
@@ -24,4 +26,10 @@ const SingleStory = props => {
   )
 }
 
-export default SingleStory
+const mapDispatchToProps = dispatch => {
+  return {
+    selectStory: story => dispatch(selectStoryThunk(story))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(SingleStory)
