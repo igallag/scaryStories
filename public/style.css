@@ -39,6 +39,14 @@ form div {
   grid-template-columns: 40px 50px auto 50px 40px;
 }
 
+#night-container {
+  background-color: black;
+}
+
+#night-text {
+  color: white;
+}
+
 /* This stuff is half styled but the wrap doesnt
  * doesnt work on the big textbox and also
  * needs aditional front end work
