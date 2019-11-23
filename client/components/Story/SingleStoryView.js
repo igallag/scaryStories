@@ -10,16 +10,22 @@ import {
 
 const SingleStoryView = props => {
   let currStory = props.selectedStory
-  let counter = 0
-  const storyFetcher = (async function() {
-    if (!currStory.title) {
-      let {data} = await axios.get(`/api/${props.location.pathname}`)
-      props.selectStory(data)
-      // currStory = data
-    }
-    counter++
-    console.log('counter: ', counter)
-  })()
+
+  // const storyFetcher = (async function() {
+  //   if (!currStory.title) {
+  //     let {data} = await axios.get(`/api/${props.location.pathname}`)
+  //     props.selectStory(data)
+  //   }
+  // })()
+
+  useEffect(() => {
+    const storyFetcher = (async function() {
+      if (!currStory.title) {
+        let {data} = await axios.get(`/api/${props.location.pathname}`)
+        props.selectStory(data)
+      }
+    })()
+  }, [])
 
   return currStory ? (
     <div>
