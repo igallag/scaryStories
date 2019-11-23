@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
 const UserSetting = props => {
   const {user} = props
@@ -14,7 +15,9 @@ const UserSetting = props => {
         </button>
       </div>
       <div>
-        <button type="button">NightMode</button>
+        <Link to="/users/settings/darkMode">
+          <button type="button">NightMode</button>
+        </Link>
       </div>
     </div>
   )

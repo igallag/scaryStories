@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
+import axios from 'axios' // may just use a thunk for it and not this dumb short cut
 import {
   removeStoryThunk,
   getAllStoriesThunk,
@@ -9,11 +10,14 @@ import {
 
 const SingleStoryView = props => {
   let currStory = props.stories[props.location.state.storyId - 1]
+  // console.log(props, 'this is props')
 
-  useEffect(() => {
+  useEffect(async () => {
     if (!currStory) {
       // fetch the selected story and make it the selected story
       // thinking of looking via the current slug
+      // console.log('inside useEffect')
+      // currStory = await axios.get(`/api/${props.location.pathname}`)
     }
   }, [])
 
