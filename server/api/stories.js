@@ -72,9 +72,6 @@ router.post('/', async (req, res, next) => {
     const story = await Story.create(newStory)
 
     res.status(200).json(story)
-
-    // await Story.create(req.body)
-    // res.json(req.body)
   } catch (error) {
     next(error)
   }
