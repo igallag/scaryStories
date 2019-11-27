@@ -11,13 +11,6 @@ import {
 const SingleStoryView = props => {
   let currStory = props.selectedStory
 
-  // const storyFetcher = (async function() {
-  //   if (!currStory.title) {
-  //     let {data} = await axios.get(`/api/${props.location.pathname}`)
-  //     props.selectStory(data)
-  //   }
-  // })()
-
   useEffect(() => {
     const storyFetcher = (async function() {
       if (!currStory.title) {
