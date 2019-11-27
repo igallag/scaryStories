@@ -14,7 +14,6 @@ router.get('/', async (req, res, next) => {
 })
 
 // Get a story by ID
-// this may depricated after the 'get story by slug' route is implimented
 router.get('/:storyId', async (req, res, next) => {
   try {
     const story = await Story.findByPk(req.params.storyId)
