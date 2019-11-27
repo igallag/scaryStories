@@ -4,10 +4,6 @@ import SingleStory from '../Story/SingleStory'
 import {getUserStoriesThunk} from '../../store/user'
 
 const AllUserStories = props => {
-  // const dispatch = useDispatch()
-  // const [stories, setStories] = useState(dispatch(getUserStoriesThunk()))
-
-  // populates a user's stories. The empty array makes it run only on initial mount
   useEffect(() => {
     props.getUserStories()
   }, [])

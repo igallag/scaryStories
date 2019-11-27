@@ -23,7 +23,6 @@ class StoryEntry extends React.Component {
     })
   }
 
-  // needs refactoring for this project
   handleSubmit(evt) {
     evt.preventDefault()
 

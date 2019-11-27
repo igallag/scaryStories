@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-import axios from 'axios' // may just use a thunk for it and not this dumb short cut
+import axios from 'axios'
 import {
   removeStoryThunk,
   getAllStoriesThunk,

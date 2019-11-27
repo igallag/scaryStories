@@ -103,10 +103,6 @@ router.put('/', async (req, res, next) => {
     })
 
     res.status(200).json(obj)
-    // }
-    // else {
-    //   res.sendStatus(403)
-    // }
   } catch (error) {
     next(error)
   }
