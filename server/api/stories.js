@@ -94,7 +94,7 @@ router.put('/', async (req, res, next) => {
     if (!newStory.content) {
       newStory.content = oldStory.content
     }
-
+    // makes sure all fields are watched
     const obj = await oldStory.update({
       title: newStory.title,
       description: newStory.description,
