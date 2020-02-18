@@ -11,6 +11,7 @@ import StoryEntry from './components/Story/StoryEntry'
 import AllTagStories from './components/Story/AllTagStoriesView'
 import UserSettings from './components/User/UserSettings'
 import DarkMode from './components/User/DarkMode'
+import Graph from './components/Stats/TagGraphs' /* This name may need to be cleaned up*/
 
 /**
  * COMPONENT
@@ -40,6 +41,7 @@ class Routes extends Component {
             <Route exact path="/stories/submit" component={StoryEntry} />
             <Route exact path="/users/settings" component={UserSettings} />
             <Route exact path="/users/settings/darkMode" component={DarkMode} />
+            <Route exact path="/stories/stats" component={Graph} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
