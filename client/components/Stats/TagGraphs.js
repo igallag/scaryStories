@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import * as d3 from 'd3'
+import rd3 from 'react-d3-library'
 
 // const Graph = props => {
 //   return (
