@@ -4,8 +4,12 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
 
+const navbarStyle = {
+  color: 'goldenrod'
+}
+
 const Navbar = ({handleClick, isLoggedIn}) => (
-  <div>
+  <div style={navbarStyle}>
     <div id="nav-title">
       <img
         src="https://scarystoriesfromcamproanoke.files.wordpress.com/2017/08/cropped-largest-finished-logo.jpg"

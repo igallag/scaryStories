@@ -4,8 +4,13 @@ import {Link} from 'react-router-dom'
 import {selectStoryThunk} from '../../store/story'
 
 const SingleStory = props => {
+  const storyStyle = {
+    color: 'goldenrod',
+    fontFamily: 'Arial'
+  }
+
   return (
-    <div id="single-story">
+    <div id="single-story" style={storyStyle}>
       <Link
         to={{
           pathname: `/stories/content/${props.story.slug}`,

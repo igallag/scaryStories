@@ -11,6 +11,11 @@ class AllStories extends React.Component {
   }
 
   render() {
+    const storyStyle = {
+      color: 'white',
+      backgroundColor: 'darkslategray',
+      fontFamily: 'Arial'
+    }
     return (
       <div>
         <h1>Stories</h1>

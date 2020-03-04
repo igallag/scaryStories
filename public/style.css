@@ -1,9 +1,20 @@
+html {
+  background-color: black;
+}
+
 body {
   font-family: sans-serif;
 }
 
 a {
   text-decoration: none;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+  color: inherit;
 }
 
 label {
