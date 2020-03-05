@@ -14,12 +14,17 @@ const navbarStyle = {
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div style={navbarStyle}>
     <div id="nav-title">
-      <img
-        src="https://scarystoriesfromcamproanoke.files.wordpress.com/2017/08/cropped-largest-finished-logo.jpg"
-        height="150"
-        width="150"
-      />
-      <h1>Scary Stories from Camp Roanoke</h1>
+      <Link to="/home">
+        <img
+          src="https://scarystoriesfromcamproanoke.files.wordpress.com/2017/08/cropped-largest-finished-logo.jpg"
+          height="150"
+          width="150"
+          border-radius="25px"
+        />{' '}
+      </Link>
+      <a href="https://camproanokepodcast.com/">
+        <h1>Scary Stories from Camp Roanoke</h1>
+      </a>
     </div>
     <nav>
       {isLoggedIn ? (
