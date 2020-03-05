@@ -5,7 +5,10 @@ import {Link} from 'react-router-dom'
 import {logout} from '../store'
 
 const navbarStyle = {
-  color: 'goldenrod'
+  color: 'goldenrod',
+  backgroundImage:
+    'url(https://cdnb.artstation.com/p/assets/images/images/015/516/361/large/sherif-habashi-camp-07-stylized.jpg?1548660452)',
+  backgroundPosition: '90%'
 }
 
 const Navbar = ({handleClick, isLoggedIn}) => (
