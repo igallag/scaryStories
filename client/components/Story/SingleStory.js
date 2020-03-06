@@ -14,7 +14,7 @@ const SingleStory = props => {
 
   const singleStoryDetailsStyle = {
     display: 'flex',
-    justifyContent: 'space-around'
+    justifyContent: 'space-between'
   }
   return (
     <div id="single-story" style={singleStoryStyle}>
