@@ -58,6 +58,17 @@ form div {
   color: white;
 }
 
+#all-stories-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+/* #story-details {
+  display: flex;
+  justify-content: space-around
+} */
+
 /* This stuff is half styled but the wrap doesnt
  * doesnt work on the big textbox and also
  * needs aditional front end work

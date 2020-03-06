@@ -19,9 +19,13 @@ class AllStories extends React.Component {
     return (
       <div>
         <h1>Stories</h1>
-        {this.props.stories.map(story => {
-          return <SingleStory key={story.id} storyId={story.id} story={story} />
-        })}
+        <div id="all-stories-container">
+          {this.props.stories.map(story => {
+            return (
+              <SingleStory key={story.id} storyId={story.id} story={story} />
+            )
+          })}
+        </div>
       </div>
     )
   }
