@@ -8,16 +8,26 @@ const AllUserStories = props => {
     props.getUserStories()
   }, [])
 
+  const storyStyle = {
+    display: 'flex',
+    justifyContent: 'space-around',
+    flexWrap: 'wrap'
+  }
+
   return (
     <div>
       <h1>Your stories</h1>
-      {props.user.stories ? (
-        props.user.stories.map(story => {
-          return <SingleStory key={story.id} storyId={story.id} story={story} />
-        })
-      ) : (
-        <p>Loading your stories!</p>
-      )}
+      <div style={storyStyle}>
+        {props.user.stories ? (
+          props.user.stories.map(story => {
+            return (
+              <SingleStory key={story.id} storyId={story.id} story={story} />
+            )
+          })
+        ) : (
+          <p>Loading your stories!</p>
+        )}
+      </div>
     </div>
   )
 }

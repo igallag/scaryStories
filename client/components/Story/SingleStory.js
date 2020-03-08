@@ -9,7 +9,11 @@ const SingleStory = props => {
     fontFamily: 'Arial',
     border: '3px solid goldenrod',
     borderRadius: '25px',
-    overflow: 'auto'
+    overflow: 'auto',
+    display: 'flex',
+    flexWrap: 'wrap',
+    maxWidth: '250px',
+    justifyContent: 'space-between'
   }
 
   const singleStoryDetailsStyle = {
