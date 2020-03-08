@@ -12,14 +12,13 @@ class AllStories extends React.Component {
 
   render() {
     const storyStyle = {
-      color: 'white',
-      backgroundColor: 'darkslategray',
-      fontFamily: 'Arial'
+      display: 'flex',
+      justifyContent: 'space-around'
     }
     return (
       <div>
         <h1>Stories</h1>
-        <div id="all-stories-container">
+        <div id="all-stories-container" style={storyStyle}>
           {this.props.stories.map(story => {
             return (
               <SingleStory key={story.id} storyId={story.id} story={story} />
