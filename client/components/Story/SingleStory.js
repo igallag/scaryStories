@@ -20,6 +20,13 @@ const SingleStory = props => {
     display: 'flex',
     justifyContent: 'space-between'
   }
+
+  const singleStoryDetailsTextStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    margin: '2%'
+  }
+
   return (
     <div id="single-story" style={singleStoryStyle}>
       <Link
@@ -36,10 +43,10 @@ const SingleStory = props => {
             width="100"
             alt={props.story.imageAltText}
           />
-          <div id="story-details-text">
-            <h3>{props.story.title}</h3>
-            <p>{props.story.description}</p>
-          </div>
+          <h3>{props.story.title}</h3>
+        </div>
+        <div id="story-details-text" style={singleStoryDetailsTextStyle}>
+          <p>{props.story.description}</p>
         </div>
       </Link>
     </div>
