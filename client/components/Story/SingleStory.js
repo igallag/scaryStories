@@ -13,12 +13,15 @@ const SingleStory = props => {
     display: 'flex',
     flexWrap: 'wrap',
     maxWidth: '250px',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    backgroundImage: `url(${props.story.imageUrl})`,
+    backgroundSize: '100%',
+    textShadow: '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black'
   }
 
   const singleStoryDetailsStyle = {
     display: 'flex',
-    justifyContent: 'space-between'
+    justifyContent: 'space-around'
   }
 
   const singleStoryDetailsTextStyle = {
@@ -37,12 +40,12 @@ const SingleStory = props => {
         onClick={() => props.selectStory(props.story)}
       >
         <div id="story-details" style={singleStoryDetailsStyle}>
-          <img
+          {/* <img
             src={props.story.imageUrl}
             height="100"
             width="100"
             alt={props.story.imageAltText}
-          />
+          /> */}
           <h3>{props.story.title}</h3>
         </div>
         <div id="story-details-text" style={singleStoryDetailsTextStyle}>
