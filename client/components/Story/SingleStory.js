@@ -16,7 +16,8 @@ const SingleStory = props => {
     justifyContent: 'space-between',
     backgroundImage: `url(${props.story.imageUrl})`,
     backgroundSize: '100%',
-    textShadow: '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black'
+    textShadow: '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black',
+    minWidth: '250px'
   }
 
   const singleStoryDetailsStyle = {
