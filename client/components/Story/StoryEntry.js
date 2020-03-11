@@ -38,6 +38,11 @@ class StoryEntry extends React.Component {
     })
   }
 
+  /**
+   * This page needs better styling
+   * the content form is large enough but it only writes on one line.
+   */
+
   render() {
     return (
       <div id="story-entry">
