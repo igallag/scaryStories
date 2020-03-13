@@ -74,7 +74,7 @@ class StoryEntry extends React.Component {
             <label htmlFor="content">
               <small>Content</small>
             </label>
-            <input
+            <textarea
               className="big-textbox"
               name="content"
               type="text"
