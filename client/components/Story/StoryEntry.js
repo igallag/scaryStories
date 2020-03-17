@@ -72,7 +72,10 @@ class StoryEntry extends React.Component {
           </div>
           <div>
             <label htmlFor="content">
-              <small>Content</small>
+              <small>
+                Content (We recommend copying and pasting your story to preserve
+                it incase of an error)
+              </small>
             </label>
             <textarea
               className="big-textbox"
