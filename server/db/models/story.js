@@ -38,6 +38,8 @@ const Story = db.define('story', {
   }
 })
 
+// need to add a validation for making tags
+
 Story.beforeValidate(story => {
   /*
    * Generate slug
