@@ -52,6 +52,10 @@ Story.beforeValidate(story => {
       .toLowerCase()
   }
 
+  if (typeof story.tags === 'string') {
+    story.tags = story.tags.toLowerCase().split(', ')
+  }
+
   // if there is no entered image URL it is replaced with the default
   if (story.imageUrl === '') {
     story.imageUrl =
