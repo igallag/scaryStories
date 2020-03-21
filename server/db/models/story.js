@@ -50,6 +50,9 @@ Story.beforeValidate(story => {
       .toLowerCase()
   }
 
+  /**
+   * This splits the tags for every comma and space as instructed to the user
+   */
   if (typeof story.tags === 'string') {
     story.tags = story.tags.toLowerCase().split(', ')
   }
