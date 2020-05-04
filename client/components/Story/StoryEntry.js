@@ -41,7 +41,6 @@ class StoryEntry extends React.Component {
   /**
    * This page needs better styling
    * Perhaps look into getting some graphic fonts or otherthings to make it feel less boiler plate
-   * Look into seperating the tags potentially in the before validate stage in the model
    */
 
   render() {
